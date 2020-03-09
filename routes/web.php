@@ -17,7 +17,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/mahasiswa/{kelas?}', 'MahasiswaController@index');
+// Route::get('/mahasiswa/{kelas?}', 'MahasiswaController@index');
 // Route::get('crud', 'CrudController@index');
 // Route::get('crud/tambah', 'CrudController@tambah');
 Route::resource('crud', 'CrudController');
+Route::resource('mahasiswa', 'MahasiswaController');
