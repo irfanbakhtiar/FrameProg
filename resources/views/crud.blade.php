@@ -53,9 +53,15 @@
   </div>
 </div>
 <td>
-<center><a href="{{route('crud.show', $c['nim'])}}" class="btn btn-info"><i class="fas fa-eye"></i> Lihat</a> <a href="{{route('crud.edit',$c['nim'])}}" class="btn btn-warning"><i class="fas fa-user-edit"></i> Edit</a>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus"><i class="fas fa-trash-alt"></i> 
-                Hapus</button></center>
+<center><form action="{{route('crud.destroy', $c['nama'])}}" method="post"><a href="{{route('crud.show', $c['nim'])}}" class="btn btn-info"><i class="fas fa-eye"></i> Lihat</a> <a href="{{route('crud.edit',$c['nim'])}}" class="btn btn-warning"><i class="fas fa-user-edit"></i> Edit</a>
+                <!-- <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#hapus"><i class="fas fa-trash-alt"></i> 
+                Hapus</button>-->                 
+                
+                    @csrf
+                    <input type="hidden" name="_method" value="DELETE">
+                    <input type="hidden" value="{{$c['nama']}}" name="name">
+                    <input type="submit" class="btn btn-danger" value="Hapus" onclick="return alert('Apakah anda yakin?')">
+                </form></center>
             </tr>
         @endforeach
     </tbody>
